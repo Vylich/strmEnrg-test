@@ -67,14 +67,17 @@ const App = () => {
           </button>
         )}
       </header>
-      {selectedZodiac ? (
+      {selectedZodiac && language ? (
         <ZodiacDescription
           zodiac={selectedZodiac}
           onClose={handleCloseDescription}
-          language={language}
+          language={language && language}
         />
       ) : (
-        <ZodiacList language={language} onZodiacClick={handleZodiacClick} />
+        <ZodiacList
+          language={language && language}
+          onZodiacClick={handleZodiacClick}
+        />
       )}
     </div>
   );

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import ZodiacList from "./components/ZodiacList";
 import ZodiacDescription from "./components/ZodiacDescription";
 import axios from "axios";
-const tg = window.Telegram.WebApp;
 
 import "./App.scss";
 
@@ -10,13 +9,12 @@ const App = () => {
   const [language, setLanguage] = useState("original");
   const [selectedZodiac, setSelectedZodiac] = useState(null);
 
-  const onClose = () => {
-    tg.close();
-  };
+  const tg = window.Telegram.WebApp;
 
   useEffect(() => {
-    const userLang = navigator.language || "en";
-    setLanguage(userLang.startsWith("ru") ? "translated" : "original");
+    tg.ready();
+    const userLang = tg.initDataUnsafe.user.language_code;
+    setLanguage(userLang === "ru" ? "translated" : "original");
   }, []);
 
   const handleZodiacClick = (zodiac) => {

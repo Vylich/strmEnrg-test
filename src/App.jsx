@@ -11,11 +11,11 @@ const App = () => {
 
   const tg = window.Telegram.WebApp;
 
-  useEffect(() => {
-    tg.ready();
-    const userLang = tg.initDataUnsafe.user.language_code;
-    setLanguage(userLang.startsWith("ru") ? "translated" : "original");
-  }, []);
+  // useEffect(() => {
+  //   tg.ready();
+  //   const userLang = tg.initDataUnsafe.user.language_code;
+  //   setLanguage(userLang.startsWith("ru") ? "translated" : "original");
+  // }, []);
 
   const handleZodiacClick = (zodiac) => {
     axios

@@ -6,7 +6,7 @@ import axios from "axios";
 import "./App.scss";
 
 const App = () => {
-  const [language, setLanguage] = useState("original");
+  const [language, setLanguage] = useState("");
   const [selectedZodiac, setSelectedZodiac] = useState(null);
 
   const tg = window.Telegram.WebApp;
@@ -14,7 +14,7 @@ const App = () => {
   useEffect(() => {
     tg.ready();
     const userLang = tg.initDataUnsafe.user.language_code;
-    setLanguage(userLang === "ru" ? "translated" : "original");
+    setLanguage(userLang === "ru" ? "original" : "translated");
   }, []);
 
   const handleZodiacClick = (zodiac) => {

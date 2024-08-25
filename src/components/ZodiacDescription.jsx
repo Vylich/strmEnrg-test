@@ -12,9 +12,6 @@ const ZodiacDescription = ({ zodiac, onClose, language }) => {
   const translations = zodiacTranslations[language];
   return (
     <div className="zodiac-description" {...swipeHandlers}>
-      <button onClick={onClose}>
-        {language === "original" ? "Назад" : "Back"}
-      </button>
       <h2>{translations[zodiac.sign]}</h2>
       <p>{zodiac.horoscope}</p>
     </div>

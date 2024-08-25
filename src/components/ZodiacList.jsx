@@ -30,7 +30,7 @@ const ZodiacList = ({ language, onZodiacClick }) => {
           onClick={() => onZodiacClick(sign)}
         >
           <img src={`./${sign}.png`} alt={sign} />
-          <div>
+          <div className="horoscope-info">
             <h3>{translations[sign]}</h3>
             <p>{periods[sign]}</p>
           </div>

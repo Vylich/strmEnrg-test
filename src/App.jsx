@@ -2,12 +2,17 @@ import React, { useState, useEffect } from "react";
 import ZodiacList from "./components/ZodiacList";
 import ZodiacDescription from "./components/ZodiacDescription";
 import axios from "axios";
+const tg = window.Telegram.WebApp;
 
 import "./App.scss";
 
 const App = () => {
   const [language, setLanguage] = useState("original");
   const [selectedZodiac, setSelectedZodiac] = useState(null);
+
+  const onClose = () => {
+    tg.close();
+  };
 
   useEffect(() => {
     const userLang = navigator.language || "en";
@@ -47,16 +52,22 @@ const App = () => {
 
   return (
     <div className="app">
-      <header>
+      <header className="app-header">
         <button
+          className="button"
           onClick={() =>
             setLanguage(language === "original" ? "translated" : "original")
           }
         >
           {language === "original"
-            ? "Использовать английский"
-            : "Switch to Russian"}
+            ? "Switch to English"
+            : "Переключить на русский"}
         </button>
+        {selectedZodiac && (
+          <button className="button" onClick={onClose}>
+            {language === "original" ? "Назад" : "Back"}
+          </button>
+        )}
       </header>
       {selectedZodiac ? (
         <ZodiacDescription

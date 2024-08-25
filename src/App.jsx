@@ -66,6 +66,7 @@ const App = () => {
             {language === "original" ? "Назад" : "Back"}
           </button>
         )}
+        <span>{language}</span>
       </header>
       {selectedZodiac ? (
         <ZodiacDescription

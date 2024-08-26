@@ -3,7 +3,7 @@ import { useSwipeable } from "react-swipeable";
 
 import { zodiacTranslations } from "../translations";
 
-const ZodiacDescription = ({ zodiac, language }) => {
+const ZodiacDescription = ({ zodiac, onClose, language }) => {
   const swipeHandlers = useSwipeable({
     onSwipedRight: () => onClose(),
     preventDefaultTouchmoveEvent: true,

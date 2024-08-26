@@ -11,11 +11,11 @@ const App = () => {
 
   const tg = window.Telegram.WebApp;
 
-  // useEffect(() => {
-  //   tg.ready();
-  //   const userLang = tg.initDataUnsafe.user.language_code;
-  //   setLanguage(userLang.startsWith("ru") ? "translated" : "original");
-  // }, []);
+  useEffect(() => {
+    tg.ready();
+    const userLang = tg.initDataUnsafe.user.language_code;
+    setLanguage(userLang.startsWith("ru") ? "translated" : "original");
+  }, []);
 
   const handleZodiacClick = (zodiac) => {
     axios
@@ -62,7 +62,7 @@ const App = () => {
             : "Переключить на русский"}
         </button>
         {selectedZodiac && (
-          <button className="button" onClick={onClose}>
+          <button className="button" onClick={handleCloseDescription}>
             {language === "original" ? "Назад" : "Back"}
           </button>
         )}

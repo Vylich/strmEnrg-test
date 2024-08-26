@@ -14,7 +14,7 @@ const App = () => {
   useEffect(() => {
     tg.ready();
     const userLang = tg.initDataUnsafe.user.language_code;
-    setLanguage(userLang.startsWith("ru") ? "translated" : "original");
+    setLanguage(userLang.startsWith("ru") ? "original" : "translated");
   }, []);
 
   const handleZodiacClick = (zodiac) => {
